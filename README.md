@@ -1,2 +1,2 @@
 # website
-git website
+github website
