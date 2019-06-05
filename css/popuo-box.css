@@ -39,11 +39,9 @@ a.play-icon.popup-with-zoom-anim img:hover {
 	text-align:justify;
 }
 /**
-
 /**
  * Fade-zoom animation for first dialog
  */
-
 /* start state */
 .my-mfp-zoom-in #small-dialog {
 opacity: 0;
@@ -104,7 +102,6 @@ opacity: 0;
   background: #0b0b0b;
   opacity: 0.8;
   filter: alpha(opacity=80); }
-
 .mfp-wrap {
   top: 0;
   left: 0;
@@ -114,7 +111,6 @@ opacity: 0;
   position: fixed;
   outline: none !important;
   -webkit-backface-visibility: hidden; }
-
 .mfp-container {
   text-align: center;
   position: absolute;
@@ -126,16 +122,13 @@ opacity: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
-
 .mfp-container:before {
   content: '';
   display: inline-block;
   height: 100%;
   vertical-align: middle; }
-
 .mfp-align-top .mfp-container:before {
   display: none; }
-
 .mfp-content {
   position: relative;
   display: inline-block;
@@ -143,15 +136,12 @@ opacity: 0;
   margin: 0 auto;
   text-align: left;
   z-index: 1045; }
-
 .mfp-inline-holder .mfp-content,
 .mfp-ajax-holder .mfp-content {
   width: 100%;
   cursor: auto; }
-
 .mfp-ajax-cur {
   cursor: progress; }
-
 .mfp-zoom-out-cur,
 .mfp-zoom-out-cur .mfp-image-holder .mfp-close {
   cursor: -moz-zoom-out;
@@ -162,10 +152,8 @@ opacity: 0;
   cursor: -webkit-zoom-in;
   cursor: -moz-zoom-in;
   cursor: zoom-in; }
-
 .mfp-auto-cursor .mfp-content {
   cursor: auto; }
-
 .mfp-close,
 .mfp-arrow,
 .mfp-preloader,
@@ -173,7 +161,6 @@ opacity: 0;
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none; }
-
 .mfp-loading.mfp-figure {
   display: none; }
 
@@ -193,19 +180,14 @@ opacity: 0;
   left: 8px;
   right: 8px;
   z-index: 1044; }
-
 .mfp-preloader a {
   color: #cccccc; }
-
 .mfp-preloader a:hover {
   color: white; }
-
 .mfp-s-ready .mfp-preloader {
   display: none; }
-
 .mfp-s-error .mfp-content {
   display: none; }
-
 button.mfp-close,
 button.mfp-arrow {
   overflow: visible;
@@ -219,7 +201,6 @@ button.mfp-arrow {
 button::-moz-focus-inner {
   padding: 0;
   border: 0; }
-
 .mfp-close {
 	width: 23px;
     height: 30px;
@@ -238,7 +219,6 @@ button::-moz-focus-inner {
  }
   .mfp-close:hover, .mfp-close:focus {
     opacity: 1; }
-
 .mfp-close-btn-in .mfp-close {
   color: #333333; 
   background: none;
@@ -353,4 +333,4 @@ button::-moz-focus-inner {
 		right: 2px;
 		top: -35px;
 	}
-} 
+}
