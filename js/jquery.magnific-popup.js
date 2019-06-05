@@ -2,15 +2,12 @@
 * http://dimsemenov.com/plugins/magnific-popup/
 * Copyright (c) 2013 Dmitry Semenov; */
 ;(function($) {
-
 /*>>core*/
 /**
  * 
  * Magnific Popup Core JS file
  * 
  */
-
-
 /**
  * Private static constants
  */
@@ -26,8 +23,6 @@ var CLOSE_EVENT = 'Close',
 	READY_CLASS = 'mfp-ready',
 	REMOVING_CLASS = 'mfp-removing',
 	PREVENT_CLOSE_CLASS = 'mfp-prevent-close';
-
-
 /**
  * Private vars 
  */
@@ -41,8 +36,6 @@ var mfp, // As we have only one instance of MagnificPopup object, we define it l
 	_prevContentType,
 	_wrapClasses,
 	_currPopupType;
-
-
 /**
  * Private functions
  */
@@ -108,16 +101,11 @@ var _mfpOn = function(name, f) {
 				
 		return false;
 	};
-
-
-
 /**
  * Public functions
  */
 MagnificPopup.prototype = {
-
 	constructor: MagnificPopup,
-
 	/**
 	 * Initializes Magnific Popup plugin. 
 	 * This function is triggered only once when $.fn.magnificPopup or $.magnificPopup is executed
@@ -139,13 +127,11 @@ MagnificPopup.prototype = {
 
 		mfp.popupsCache = {};
 	},
-
 	/**
 	 * Opens popup
 	 * @param  data [description]
 	 */
 	open: function(data) {
-
 		var i;
 
 		if(data.isObj === false) { 
@@ -175,7 +161,6 @@ MagnificPopup.prototype = {
 			mfp.updateItemHTML();
 			return;
 		}
-		
 		mfp.types = []; 
 		_wrapClasses = '';
 		if(data.mainEl && data.mainEl.length) {
@@ -192,9 +177,6 @@ MagnificPopup.prototype = {
 		} else {
 			mfp.currTemplate = {};
 		}
-
-
-
 		mfp.st = $.extend(true, {}, $.magnificPopup.defaults, data ); 
 		mfp.fixedContentPos = mfp.st.fixedContentPos === 'auto' ? !mfp.probablyMobile : mfp.st.fixedContentPos;
 
@@ -204,8 +186,6 @@ MagnificPopup.prototype = {
 			mfp.st.showCloseBtn = false;
 			mfp.st.enableEscapeKey = false;
 		}
-		
-
 		// Building markup
 		// main containers are created only once
 		if(!mfp.bgOverlay) {
@@ -223,13 +203,10 @@ MagnificPopup.prototype = {
 
 			mfp.container = _getEl('container', mfp.wrap);
 		}
-
 		mfp.contentContainer = _getEl('content');
 		if(mfp.st.preloader) {
 			mfp.preloader = _getEl('preloader', mfp.container, mfp.st.tLoading);
 		}
-
-
 		// Initializing modules
 		var modules = $.magnificPopup.modules;
 		for(i = 0; i < modules.length; i++) {
@@ -238,8 +215,6 @@ MagnificPopup.prototype = {
 			mfp['init'+n].call(mfp);
 		}
 		_mfpTrigger('BeforeOpen');
-
-
 		if(mfp.st.showCloseBtn) {
 			// Close button
 			if(!mfp.st.closeBtnInside) {
@@ -251,7 +226,6 @@ MagnificPopup.prototype = {
 				_wrapClasses += ' mfp-close-btn-in';
 			}
 		}
-
 		if(mfp.st.alignTop) {
 			_wrapClasses += ' mfp-align-top';
 		}
@@ -276,9 +250,6 @@ MagnificPopup.prototype = {
 				position: 'absolute'
 			});
 		}
-
-		
-
 		if(mfp.st.enableEscapeKey) {
 			// Close on ESC key
 			_document.on('keyup' + EVENT_NS, function(e) {
@@ -292,21 +263,15 @@ MagnificPopup.prototype = {
 			mfp.updateSize();
 		});
 
-
 		if(!mfp.st.closeOnContentClick) {
 			_wrapClasses += ' mfp-auto-cursor';
 		}
 		
 		if(_wrapClasses)
 			mfp.wrap.addClass(_wrapClasses);
-
-
 		// this triggers recalculation of layout, so we get it once to not to trigger twice
 		var windowHeight = mfp.wH = _window.height();
-
-		
 		var windowStyles = {};
-
 		if( mfp.fixedContentPos ) {
             if(mfp._hasScrollBar(windowHeight)){
                 var s = mfp._getScrollbarSize();
@@ -315,7 +280,6 @@ MagnificPopup.prototype = {
                 }
             }
         }
-
 		if(mfp.fixedContentPos) {
 			if(!mfp.isIE7) {
 				windowStyles.overflow = 'hidden';
@@ -325,8 +289,6 @@ MagnificPopup.prototype = {
 			}
 		}
 
-		
-		
 		var classesToadd = mfp.st.mainClass;
 		if(mfp.isIE7) {
 			classesToadd += ' mfp-ie7';
@@ -339,22 +301,17 @@ MagnificPopup.prototype = {
 		mfp.updateItemHTML();
 
 		_mfpTrigger('BuildControls');
-
-
 		// remove scrollbar, add margin e.t.c
 		$('html').css(windowStyles);
 		
 		// add everything to DOM
 		mfp.bgOverlay.add(mfp.wrap).prependTo( document.body );
-
-
-
 		// Save last focused element
 		mfp._lastFocusedEl = document.activeElement;
-		
+	
 		// Wait for next cycle to allow CSS transition
 		setTimeout(function() {
-			
+
 			if(mfp.content) {
 				mfp._addClassToMFP(READY_CLASS);
 				mfp._setFocus();
@@ -365,7 +322,6 @@ MagnificPopup.prototype = {
 			
 			// Trap the focus in popup
 			_document.on('focusin' + EVENT_NS, mfp._onFocusIn);
-
 		}, 16);
 
 		mfp.isOpen = true;
@@ -393,7 +349,6 @@ MagnificPopup.prototype = {
 			mfp._close();
 		}
 	},
-
 	/**
 	 * Helper for close() function
 	 */
@@ -466,7 +421,6 @@ MagnificPopup.prototype = {
 		}
 
 		_mfpTrigger('Resize');
-
 	},
 
 	/**
@@ -492,11 +446,6 @@ MagnificPopup.prototype = {
 		// _mfpOn('BeforeChange', function(e, prevType, newType) { });
 		
 		mfp.currItem = item;
-
-		
-
-		
-
 		if(!mfp.currTemplate[type]) {
 			var markup = mfp.st[type] ? mfp.st[type].markup : false;
 
@@ -528,8 +477,6 @@ MagnificPopup.prototype = {
 
 		_mfpTrigger('AfterChange');
 	},
-
-
 	/**
 	 * Set HTML content of popup
 	 */
@@ -555,10 +502,6 @@ MagnificPopup.prototype = {
 
 		mfp.contentContainer.append(mfp.content);
 	},
-
-
-
-	
 	/**
 	 * Creates Magnific Popup data object based on given data
 	 * @param  {int} index Index of item to parse
@@ -598,8 +541,6 @@ MagnificPopup.prototype = {
 
 		return mfp.items[index];
 	},
-
-
 	/**
 	 * Initializes single popup or a group of popups
 	 */
@@ -659,16 +600,13 @@ MagnificPopup.prototype = {
 				e.stopPropagation();
 			}
 		}
-			
-
+		
 		options.el = $(e.mfpEl);
 		if(options.delegate) {
 			options.items = el.find(options.delegate);
 		}
 		mfp.open(options);
 	},
-
-
 	/**
 	 * Updates text on preloader
 	 */
@@ -703,8 +641,6 @@ MagnificPopup.prototype = {
 			_prevStatus = status;
 		}
 	},
-
-
 	/*
 		"Private" helpers that aren't private at all
 	 */
@@ -800,7 +736,6 @@ MagnificPopup.prototype = {
 			}
 		});
 	},
-
 	_getScrollbarSize: function() {
 		// thx David
 		if(mfp.scrollbarSize === undefined) {
@@ -813,12 +748,7 @@ MagnificPopup.prototype = {
 		}
 		return mfp.scrollbarSize;
 	}
-
 }; /* MagnificPopup core prototype end */
-
-
-
-
 /**
  * Public static functions
  */
@@ -901,9 +831,6 @@ $.magnificPopup = {
 
 	}
 };
-
-
-
 $.fn.magnificPopup = function(options) {
 	_checkInstance();
 
@@ -952,8 +879,6 @@ $.fn.magnificPopup = function(options) {
 	}
 	return jqEl;
 };
-
-
 //Quick benchmark
 /*
 var start = performance.now(),
@@ -971,8 +896,6 @@ for(i = 0; i < rounds; i++) {
 }
 console.log('Test #2:', performance.now() - start);
 */
-
-
 /*>>core*/
 
 /*>>inline*/
@@ -1042,9 +965,7 @@ $.magnificPopup.registerModule(INLINE_NS, {
 		}
 	}
 });
-
 /*>>inline*/
-
 /*>>ajax*/
 var AJAX_NS = 'ajax',
 	_ajaxCur,
@@ -1122,15 +1043,7 @@ $.magnificPopup.registerModule(AJAX_NS, {
 		}
 	}
 });
-
-
-
-
-
-	
-
 /*>>ajax*/
-
 /*>>image*/
 var _imgInterval,
 	_getTitle = function(item) {
@@ -1230,7 +1143,6 @@ $.magnificPopup.registerModule('image', {
 
 			}
 		},
-
 		/**
 		 * Function that loops until the image has size to display elements that rely on it asap
 		 */
@@ -1369,11 +1281,7 @@ $.magnificPopup.registerModule('image', {
 		}
 	}
 });
-
-
-
 /*>>image*/
-
 /*>>zoom*/
 var hasMozTransform,
 	getHasMozTransform = function() {
@@ -1558,11 +1466,7 @@ $.magnificPopup.registerModule('zoom', {
 
 	}
 });
-
-
-
 /*>>zoom*/
-
 /*>>iframe*/
 
 var IFRAME_NS = 'iframe',
