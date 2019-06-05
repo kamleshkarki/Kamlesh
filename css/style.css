@@ -84,7 +84,7 @@ p.w3ls-p {
     letter-spacing: 1px;
     border-top: 4px double #fff;
     width:33%;
-	font-family: 'Questrial', sans-serif;
+    font-family: 'Questrial', sans-serif;
 }
 a.buy {
     font-size: 1em;
@@ -142,7 +142,6 @@ a.buy {
     transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
     -moz-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 }
-
 .btn-wayra::before {
     content: '';
     position: absolute;
@@ -164,17 +163,14 @@ a.buy {
     transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
     -moz-transition: -moz-transform 0.3s, opacity 0.3s, background-color 0.3s;
 }
-
 .btn-wayra:hover {
     color: #000;
     border-color: #de3885;
 }
-
 .btn-wayra.button--inverted:hover {
     color: #de3885;
     border-color: #fff;
 }
-
 .btn-wayra:hover::before {
     opacity: 1;
     background-color: #cfdce5;
@@ -187,16 +183,13 @@ a.buy {
     transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
     -moz-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 }
-
 btn-wayra:hover {
     color: #000;
 }
-
 .btn-wayra.button--inverted:hover::before {
     background-color: #fff;
 }
 /* Individual button styles */
-
 /*--social_media_icons_style--*/
 .w3_agileits_social_media {
     text-align: center;
@@ -287,7 +280,6 @@ p {
 	margin-top: 30px;
     font-family: 'Questrial', sans-serif;
 }
-
 .person-info-agileits-w3layouts ul li a {
     color: #FF5722;
 }
@@ -312,7 +304,6 @@ p {
     letter-spacing: .5px;
 }
 /*--//pop-up-ends-here--*/
-
 footer {
     font-size: 15px;
     font-weight: 500;
@@ -690,5 +681,3 @@ footer {
 	}
 }
 /*--/responsive--*/
-
-
