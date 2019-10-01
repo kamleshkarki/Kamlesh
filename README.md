@@ -1,2 +1,2 @@
-#Develope Profile using github
-use of 'github_website source' to develope profile that include user information and social profile or experience and skills
+#Develope Self Profile using github
+Use of 'github_website' to develope e-profile, that include basic informatation and social e-profile represent experience and skills.
